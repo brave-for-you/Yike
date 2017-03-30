@@ -4,9 +4,9 @@
     <div class="mark" ng-show="loaded">{{date|date:'MMM dd'}}</div>
     <ul class="posts large">
         <!-- 文章 -->
-        <li ng-repeat="post in posts">
-            <span href="javascript:;" ng-if="post.column" class="tag">{{post.column}}</span>
-            <div class="cont">
+        <li ng-repeat="post in posts" ng-click="con()">
+            <span ng-if="post.column" class="tag">{{post.column}}</span>
+            <div class="cont" posi="{{post.id}}">
                 <h3>{{post.title}}</h3>
                 <div class="brief">
                     <!-- 10001 和 10002 -->

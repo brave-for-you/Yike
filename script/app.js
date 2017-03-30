@@ -10,6 +10,9 @@ Yike.config(["$routeProvider", function($routeProvider) {
     }).when("/older", { //往期内容
         templateUrl: "./views/older.html",
         controller: "OlderCtrl"
+    }).when("/content", {
+        templateUrl: "./views/content.html",
+        controller: "contentCtrl"
     }).otherwise({ //默认指定的
         redirectTo: "/today"
     })
@@ -47,5 +50,9 @@ Yike.run(["$rootScope", function($rootScope) {
                 navs[i].style.transitionDelay = ""; //延迟要制空上面的
             }
         }
+    }
+    $rootScope.con = function() {
+        $rootScope.id=this.post.id;
+        location.href="#!/content";
     }
 }])
