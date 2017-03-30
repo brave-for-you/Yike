@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 突破防盗链 -->
+    <meta name="referrer" content="never">
+    <title>豆瓣一刻</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./public/less/main.css">
+    <!--使用less.js可以实时解析less文件-->
+    <script src="./public/libs/less.js"></script>
+    <!-- 引入angularJS-->
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <!--业务逻辑-->
+    <script src="./script/app.js"></script>
+    <script src="./script/controllers.js"></script>
+    <script src="./script/directives.js"></script>
+</head>
+
+<body ng-app="Yike">
+    <div class="viewport">
+        <!-- 侧边导航 -->
+        <div ng-class="{navs:true,collapse:collapsed}" ng-controller="NavsCtrl">
+            <dl>
+                <dt class="login">
+					<div class="avatar">
+						<img src="./public/images/avatar.png" alt="">
+					</div>
+					<span>登录</span>
+				</dt>
+                <!--遍历所有导航-->
+                <dd ng-class="{active:key==$index}" ng-click="toggle()" ng-repeat="nav in navs">
+                    <a href="{{nav.link}}" class="{{nav.icon}}">
+                        <span>{{nav.text}}</span>
+                    </a>
+                </dd>
+            </dl>
+            <div class="extra">
+                <a href="javascript:;" class="icon-image">夜晚</a>
+                <a href="javascript:;" class="icon-download">离线</a>
+            </div>
+        </div>
+        <div class="container">
+            <!-- 头部 -->
+            <div ng-class="{header:true,collapse:collapsed}">
+                <a href="javascript:;" ng-click="toggle()" class="menu icon-menu"></a>
+                <h2>{{title}}</h2>
+                <a href="javascript:;" class="search icon-search"></a>
+            </div>
+            <!-- 主体 -->
+            <div ng-class="{body:true,collapse:collapsed}">
+                <div yike-loading></div>
+                <!--ng-view是占位符,对应的路由视图会被加载到这里-->
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+    <!--左侧导航交互,将来会转换成angularJS的实现-->
+    <!--<script src="./public/libs/toggle.js"></script>-->
+</body>
+
+</html>
