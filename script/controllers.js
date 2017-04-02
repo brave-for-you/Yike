@@ -77,7 +77,7 @@ angular.module("Ctrls", [])
     $http({
         url:"./api/author.php"
     }).then(function (res) {
-        console.log(res);
+        // console.log(res);
 
         //将获取到的数据放到模型上
         $scope.rec=res.data.rec.authors;
@@ -92,7 +92,6 @@ angular.module("Ctrls", [])
     $rootScope.title = "查看作者";
     $rootScope.key=2;
     var id=$rootScope.id;
-    alert(id);
     $http({
         url: "./api/authorcon.php",
         params:{id:id}
