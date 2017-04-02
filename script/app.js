@@ -10,9 +10,15 @@ Yike.config(["$routeProvider", function($routeProvider) {
     }).when("/older", { //往期内容
         templateUrl: "./views/older.html",
         controller: "OlderCtrl"
-    }).when("/content", {
+    }).when("/author", {//作者
+        templateUrl: "./views/author.html",
+        controller: "AuthorCtrl"
+    }).when("/content", {//内容点击
         templateUrl: "./views/content.html",
         controller: "contentCtrl"
+    }).when("/authorcon", {//作者详细
+        templateUrl: "./views/authorcon.html",
+        controller: "authorconCtrl"
     }).otherwise({ //默认指定的
         redirectTo: "/today"
     })
@@ -54,5 +60,9 @@ Yike.run(["$rootScope", function($rootScope) {
     $rootScope.con = function() {
         $rootScope.id=this.post.id;
         location.href="#!/content";
+    }
+    $rootScope.aucon = function() {
+        $rootScope.id=parseInt(this.author.id);
+        location.href="#!/authorcon";
     }
 }])

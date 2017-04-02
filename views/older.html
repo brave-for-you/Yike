@@ -5,9 +5,9 @@
 		<div class="mark" ng-show="loaded">{{date|date: 'MMM dd'}}</div>
 		<ul class="posts">
 			<!-- 文章 -->
-			<li ng-repeat="post in posts" ng-click="con()" href="#!/content">
-				<span href="javascript:;" ng-if="post.column.name" class="tag">{{post.column.name}}</span>
-				<div class="cont" posi="{{post.id}}">
+			<li ng-repeat="post in posts" ng-click="con()">
+				<span ng-if="post.column.name" class="tag">{{post.column.name}}</span>
+				<div class="cont">
 					<h3>{{post.title}}</h3>
 					<div class="brief">
 						<!-- 10002 10001 -->
